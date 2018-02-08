@@ -1,0 +1,77 @@
+.Home header {
+    font-family: Oswald, Roboto, sans-serif;
+    font-size: 120%;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 400px) {
+    .Home header {
+        font-size: 150%;
+    }
+}
+
+@media (min-width: 576px) {
+    .Home header {
+        font-size: 200%;
+    }
+}
+
+.Home header * {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.Home header .text {
+    font-size: 100%;
+    margin: .75em;
+    display: inline-block;
+}
+
+.Home header .logo {
+    height: 2em;
+}
+
+.Home .description {
+    font: 300 140% aller, Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
+    clear: both;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.Home section {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.Home section h2 {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 0;
+    text-align: center;
+}
+
+.Home .project-handlers-buttons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.Home .project-handlers-buttons button {
+    padding: 0 3rem;
+    height: 7rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.Home .project-handlers-buttons button .material-icons {
+    position: relative;
+    top: -2px;
+    width: 3rem;
+    display: block;
+    margin: auto;
+}
