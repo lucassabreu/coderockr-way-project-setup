@@ -9,7 +9,7 @@ More about this at: https://blog.coderockr.com/simplificando-o-setup-de-projetos
 Development Start
 -----------------
 
-Add `cswps.lucassabreu.test` to your `/etc/hosts` and run `yarn serve`, all dependencs will be installed and a watch-server using webpack will be started at http://cswps.lucassabreu.test:3000.
+Add `cswps.lucassabreu.test` to your `/etc/hosts` and run `yarn start`, all dependencs will be installed and a watch-server using webpack will be started at http://cswps.lucassabreu.test:3000.
 
 Deploy
 ------
