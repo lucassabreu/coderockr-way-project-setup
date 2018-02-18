@@ -11,7 +11,7 @@
     "rmwc": "^1.1.2"
   },
   "scripts": {
-    "start": "yarn install && HOST=cswps.lucassabreu.test react-scripts start",
+    "start": "yarn install && HOST=cwps.lucassabreu.test react-scripts start",
     "build": "react-scripts build && cp _redirects build/_redirects",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
