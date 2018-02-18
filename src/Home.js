@@ -2,14 +2,11 @@ import React from 'react';
 import Footer from './Footer';
 import { withRouter } from 'react-router-dom';
 
-import logo from './assets/images/hand-yellow.svg'
+import CoderockrLogo from './assets/images/hand-yellow.svg'
 import githubLogo from './assets/images/github.svg'
 import gitlabLogo from './assets/images/gitlab.svg'
 import trelloLogo from './assets/images/trello.svg'
 import './Home.css'
-
-const logotrello = require('./assets/images/trello.svg');
-console.log(logotrello);
 
 const base = window.location.href + 'callback'
 const SETUPABLE = [
@@ -36,7 +33,7 @@ const SETUPABLE = [
 const Home = () => (
   <div className="Home">
     <header>
-      <img src={logo} className="logo" alt="Coderockr Logo" />
+      <CoderockrLogo className="logo" />
       <h1 className="text">CODEROCKR WAY PROJECT SETUP</h1>
     </header>
     <div className="container">
@@ -50,11 +47,11 @@ const Home = () => (
       <section className="project-handlers">
         <h2>Where is your project?</h2>
         <ul className="row project-handlers-buttons justify-content-md-center">
-          {SETUPABLE.map(({ name, logo, url, enabled }) => (
+          {SETUPABLE.map(({ name, logo: Logo, url, enabled }) => (
             <li key={name} className="col-md-4">
               <a className={`btn btn-primary ${enabled ? null : 'disabled'}`} href={url}
                 alt={enabled ? '' : `${name} will be supported soon`}>
-                <img src={logo} className="icon" alt={`${name} icon`} />
+                <Logo className="icon" />
                 {name}
               </a>
             </li>
