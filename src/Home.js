@@ -6,13 +6,13 @@ import gitlabLogo from './assets/images/gitlab.svg'
 import trelloLogo from './assets/images/trello.svg'
 import './Home.css'
 
-const base = window.location.href + 'callback'
+const callbackUrl = (setupable) => `${window.location.href}${setupable}/callback`
 const SETUPABLE = [
   {
     name: "GitHub",
     logo: githubLogo,
     enabled: true,
-    url: 'https://github.com/login/oauth/authorize?client_id=0e8a63320fba47de145c&scope=repos&redirect_uri=' + base + '/github',
+    url: 'https://github.com/login/oauth/authorize?client_id=0e8a63320fba47de145c&scope=repos&redirect_uri=' + callbackUrl('github'),
   },
   {
     name: "GitLab",
