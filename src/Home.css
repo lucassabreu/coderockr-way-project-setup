@@ -80,3 +80,7 @@
     display: block;
     margin: auto;
 }
+
+.Home .project-handlers-buttons .btn:hover .icon path {
+    fill: white;
+}
