@@ -1,13 +1,24 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    /* font-family: "Helvetica Neue,Segoe UI,Helvetica,Arial,sans-serif"; */
     --primary: #f1a10a;
+    --white: #fff;
+}
+
+.pull-right {
+    float: right!important;
 }
 
 a {
     color: #f1a10a;
     border-bottom: 2px solid #f1a10a;
+}
+
+a:hover {
+    color: #000;
+    border-color: #000;
+    text-decoration: none;
 }
 
 .btn,
@@ -25,6 +36,16 @@ a {
 .btn-danger:hover,
 .btn-info:hover {
     color: white;
+}
+
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.2rem rgba(241, 161, 10, .5);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-primary,
