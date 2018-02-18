@@ -1,5 +1,48 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    --primary: #f1a10a;
+}
+
+.btn {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.btn-primary,
+.btn-primary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary);
+}
+
+.btn-success,
+.btn-success:hover {
+    border-color: var(--success);
+}
+
+.btn-success:hover {
+    background-color: var(--success);
+}
+
+.btn-danger,
+.btn-danger:hover {
+    border-color: var(--danger);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger);
+}
+
+.btn-info,
+.btn-info:hover {
+    border-color: var(--info);
+}
+
+.btn-info:hover {
+    background-color: var(--info);
 }

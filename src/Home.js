@@ -1,24 +1,42 @@
 import React from 'react';
 import Footer from './Footer';
-import Button from 'rmwc/Button';
-import Icon from 'rmwc/Icon';
 import { withRouter } from 'react-router-dom';
 
 import logo from './assets/images/hand-yellow.svg'
-import github from './assets/images/github.svg'
-import gitlab from './assets/images/gitlab.svg'
-import trello from './assets/images/trello.svg'
+import githubLogo from './assets/images/github.svg'
+import gitlabLogo from './assets/images/gitlab.svg'
+import trelloLogo from './assets/images/trello.svg'
 import './Home.css'
 
+const logotrello = require('./assets/images/trello.svg');
+console.log(logotrello);
+
 const base = window.location.href + 'callback'
-const EXTERNAL_ROUTES = {
-  GITHUB: 'https://github.com/login/oauth/authorize?client_id=0e8a63320fba47de145c&scope=repos&redirect_uri=' + base + '/github',
-};
+const SETUPABLE = [
+  {
+    name: "GitHub",
+    logo: githubLogo,
+    enabled: true,
+    url: 'https://github.com/login/oauth/authorize?client_id=0e8a63320fba47de145c&scope=repos&redirect_uri=' + base + '/github',
+  },
+  {
+    name: "GitLab",
+    logo: gitlabLogo,
+    enabled: false,
+    url: null,
+  },
+  {
+    name: "Trello",
+    logo: trelloLogo,
+    enabled: false,
+    url: null,
+  },
+];
 
 const Home = () => (
   <div className="Home">
     <header>
-      <img src={logo} className="logo" />
+      <img src={logo} className="logo" alt="Coderockr Logo" />
       <h1 className="text">CODEROCKR WAY PROJECT SETUP</h1>
     </header>
     <div className="container">
@@ -32,24 +50,15 @@ const Home = () => (
       <section className="project-handlers">
         <h2>Where is your project?</h2>
         <ul className="row project-handlers-buttons justify-content-md-center">
-          <li className="col-md-4">
-            <a class="button" href={EXTERNAL_ROUTES.GITHUB}>
-              <Icon children={github} />
-              GitHub
-            </a>
-          </li>
-          <li className="col-md-4">
-            <Button disabled raised>
-              <Icon children={gitlab} />
-              GitLab
-            </Button>
-          </li>
-          <li className="col-md-4">
-            <Button disabled raised>
-              <Icon children={trello} />
-              Trello
-            </Button>
-          </li>
+          {SETUPABLE.map(({ name, logo, url, enabled }) => (
+            <li key={name} className="col-md-4">
+              <a className={`btn btn-primary ${enabled ? null : 'disabled'}`} href={url}
+                alt={enabled ? '' : `${name} will be supported soon`}>
+                <img src={logo} className="icon" alt={`${name} icon`} />
+                {name}
+              </a>
+            </li>
+          ))}
         </ul>
       </section>
       <section className="more-about">

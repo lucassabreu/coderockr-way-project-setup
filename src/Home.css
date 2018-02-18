@@ -66,23 +66,14 @@
     padding: 0;
 }
 
-.Home .project-handlers-buttons button,
-.Home .project-handlers-buttons a {
+.Home .project-handlers-buttons .btn {
     display: inline-block;
-    padding: 0 3rem;
-    height: 7rem;
+    padding: 1rem 3rem;
     width: 100%;
     margin-bottom: 1rem;
 }
 
-.Home .project-handlers-buttons a{
-    background-color: green;
-    color: white;
-
-}
-
-.Home .project-handlers-buttons button .material-icons,
-.Home .project-handlers-buttons a .material-icons {
+.Home .project-handlers-buttons .btn .icon {
     position: relative;
     top: -2px;
     width: 3rem;

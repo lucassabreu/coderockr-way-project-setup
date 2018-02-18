@@ -13,27 +13,32 @@ const Footer = () => (
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/coderockr" title="Siga a Coderockr no Twitter" target="_blank">
+              <a href="https://twitter.com/coderockr" title="Siga a Coderockr no Twitter"
+                target="_blank" rel="noopener noreferrer">
                 <span className="icon-twitter"></span>
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/user/coderockr" title="Acompahe a Coderockr no YouTube" target="_blank">
+              <a href="https://www.youtube.com/user/coderockr" title="Acompahe a Coderockr no YouTube"
+                target="_blank" rel="noopener noreferrer">
                 <span className="icon-youtube"></span>
               </a>
             </li>
             <li>
-              <a href="https://blog.coderockr.com" title="Leia sore a Coderockr no Medium" target="_blank">
+              <a href="https://blog.coderockr.com" title="Leia sore a Coderockr no Medium"
+                target="_blank" rel="noopener noreferrer">
                 <span className="icon-medium"></span>
               </a>
             </li>
             <li>
-              <a href="https://plus.google.com/+Coderockr" title="Acompahe a Coderockr no Google+" target="_blank">
+              <a href="https://plus.google.com/+Coderockr" title="Acompahe a Coderockr no Google+"
+                target="_blank" rel="noopener noreferrer">
                 <span className="icon-google-plus"></span>
               </a>
             </li>
             <li>
-              <a href="https://github.com/Coderockr" title="Acompahe a Coderockr no Github" target="_blank">
+              <a href="https://github.com/Coderockr" title="Acompahe a Coderockr no Github"
+                target="_blank" rel="noopener noreferrer">
                 <span className="icon-github"></span>
               </a>
             </li>
