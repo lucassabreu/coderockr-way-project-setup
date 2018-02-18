@@ -1,0 +1,17 @@
+#footer {
+    background: #1d1d1b;
+    color: var(--white);
+    margin-top: 1rem;
+    padding: 2rem 0;
+}
+
+#footer .text {
+    float: right;
+    margin: 9px 32px 0 0;
+    text-align: right;
+}
+
+#footer .white-logo {
+    width: 28px;
+    margin-top: 5px;
+}
