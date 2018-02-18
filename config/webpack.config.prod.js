@@ -143,6 +143,12 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          {
+            test: [/\.svg$/],
+            exclude: /node_modules/,
+            loader: require.resolve('svg-react-loader'),
+            query: { classIdPrefix: '[name]-[hash:8]__' },
+          },
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
