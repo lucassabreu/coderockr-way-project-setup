@@ -1,9 +1,11 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom'
+
 import './App.css';
 import CoderockrLogo from './assets/images/hand-yellow.svg'
 import Home from './Home'
 import Footer from './Footer';
-import { Switch, Route } from 'react-router-dom'
+import GitHub from './GitHub/GitHub';
 
 const App = () => (
   <div className="CWSPApp">
@@ -16,6 +18,7 @@ const App = () => (
     <div className=" container">
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/github/" component={GitHub} />
       </Switch>
     </div>
     <Footer />

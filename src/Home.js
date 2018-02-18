@@ -5,6 +5,7 @@ import githubLogo from './assets/images/github.svg'
 import gitlabLogo from './assets/images/gitlab.svg'
 import trelloLogo from './assets/images/trello.svg'
 import './Home.css'
+import { githubAuthorizeUrl } from './GitHub/constants';
 
 const callbackUrl = (setupable) => `${window.location.href}${setupable}/callback`
 const SETUPABLE = [
@@ -12,7 +13,7 @@ const SETUPABLE = [
     name: "GitHub",
     logo: githubLogo,
     enabled: true,
-    url: 'https://github.com/login/oauth/authorize?client_id=0e8a63320fba47de145c&scope=repos&redirect_uri=' + callbackUrl('github'),
+    url: githubAuthorizeUrl(callbackUrl('github')),
   },
   {
     name: "GitLab",
