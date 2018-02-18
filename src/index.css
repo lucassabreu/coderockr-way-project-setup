@@ -1,9 +1,21 @@
+html,
+body,
+#root {
+    height: 100%;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    /* font-family: "Helvetica Neue,Segoe UI,Helvetica,Arial,sans-serif"; */
     --primary: #f1a10a;
     --white: #fff;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 .pull-right {

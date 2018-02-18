@@ -1,3 +1,9 @@
+.CWSPApp {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 12rem;
+}
+
 .CWSPApp header {
     font-family: Oswald, Roboto, sans-serif;
     font-size: 120%;
