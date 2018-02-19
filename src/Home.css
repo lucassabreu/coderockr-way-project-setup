@@ -1,0 +1,33 @@
+.CWSPApp .Home section.description {
+    font: 300 140% aller, Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
+    clear: both;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 4rem;
+}
+
+.CWSPApp .Home .project-handlers-buttons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.CWSPApp .Home .project-handlers-buttons .btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.CWSPApp .Home .project-handlers-buttons .btn .icon {
+    position: relative;
+    top: -2px;
+    width: 3rem;
+    display: block;
+    margin: auto;
+}
+
+.CWSPApp .Home .project-handlers-buttons .btn:active .icon path,
+.CWSPApp .Home .project-handlers-buttons .btn:hover .icon path {
+    fill: white;
+}

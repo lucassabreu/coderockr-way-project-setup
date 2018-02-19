@@ -1,28 +1,64 @@
-.App {
-  text-align: center;
+.CWSPApp {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 12rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.CWSPApp header {
+    font-family: Oswald, Roboto, sans-serif;
+    font-size: 120%;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.CWSPApp header a {
+    color: #000;
+    border-bottom: 0;
 }
 
-.App-title {
-  font-size: 1.5em;
+@media (min-width: 400px) {
+    .CWSPApp header {
+        font-size: 150%;
+    }
 }
 
-.App-intro {
-  font-size: large;
+@media (min-width: 576px) {
+    .CWSPApp header {
+        font-size: 200%;
+    }
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.CWSPApp header * {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.CWSPApp header .text {
+    font-size: 100%;
+    margin: .75em;
+    display: inline-block;
+}
+
+.CWSPApp header .logo {
+    height: 2em;
+}
+
+.CWSPApp section {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.CWSPApp section:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.CWSPApp section h2,
+.CWSPApp section h4 {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 0;
+    text-align: center;
 }
