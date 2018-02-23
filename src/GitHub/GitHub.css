@@ -10,18 +10,8 @@
     width: 100%;
 }
 
-.GitHub .Select-control {
-    height: 2.5rem
-}
-
-.GitHub .btn-apply-labels {
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    .GitHub .btn-apply-labels {
-        margin: 1rem 0;
-    }
+.GitHub .applying-status {
+    margin: 1rem 0;
 }
 
 .GitHub .labels .label-item [type=checkbox] {

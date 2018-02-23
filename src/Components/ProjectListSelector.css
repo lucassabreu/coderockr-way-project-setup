@@ -1,0 +1,18 @@
+.ProjectListSelector .Select-control {
+    height: 2.5rem
+}
+
+.ProjectListSelector .Select-value-label,
+.ProjectListSelector .Select-placeholder {
+    line-height: 2.5rem
+}
+
+.ProjectListSelector .btn-apply-labels {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .ProjectListSelector .btn-apply-labels {
+        margin: 1rem 0;
+    }
+}

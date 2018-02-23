@@ -18,6 +18,10 @@ body {
     box-sizing: inherit;
 }
 
+.bg-primary {
+    background-color: var(--primary)!important;
+}
+
 .pull-right {
     float: right!important;
 }

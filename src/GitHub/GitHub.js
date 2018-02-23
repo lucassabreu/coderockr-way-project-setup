@@ -1,8 +1,7 @@
 import React from 'react'
 import Loading from '../Components/Loading';
+import ProjectListSelector from '../Components/ProjectListSelector';
 import { withGithubRepositories } from './withGitHubRepositories';
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
 import LABELS_TO_ADD from '../Labels';
 import invertColor from '../invertColor';
 import './GitHub.css';
@@ -11,18 +10,20 @@ class GitHub extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { selectedOption: null }
+    this.state = {
+      selectedOption: null,
+      applying: false,
+    }
   }
 
-  handleSelect(selectedOption) {
-    this.setState({ selectedOption })
+  handleApply(selectedOption) {
+    console.log(selectedOption)
+    this.setState({ selectedOption, applying: true })
   }
 
   render() {
     const { loading, repositories } = this.props;
-    const selectedOption = this.state.selectedOption && this.state.selectedOption.value
 
-    repositories.sort((a, b) => a.full_name.toLocaleLowerCase() > b.full_name.toLocaleLowerCase() ? 1 : -1)
     return (
       <div className="GitHub">
         {loading ?
@@ -32,21 +33,20 @@ class GitHub extends React.Component {
           </section>
           :
           <section>
-            <div className="row select-group">
-              <div className="col-md-10">
-                <Select
-                  value={selectedOption}
-                  onChange={(e) => this.handleSelect(e)}
-                  options={repositories.map(r => Object.assign(r, {
-                    value: r.full_name,
-                    label: r.full_name,
-                  }))}
-                />
+            <ProjectListSelector className="select-group"
+              disabled={this.state.applying}
+              selected={this.state.selectedOption}
+              projects={repositories.map(r => Object.assign(r, {
+                value: r.full_name,
+                label: r.full_name,
+              }))}
+              onApply={(selected) => this.handleApply(selected)}
+            />
+            {!this.state.applying ? null :
+              <div className="row applying-status">
+                <div className="col-md-12"><Loading /></div>
               </div>
-              <div className="col-md-2">
-                <button className="btn btn-apply-labels btn-primary">Apply</button>
-              </div>
-            </div>
+            }
             <div className="row labels">
               {LABELS_TO_ADD.map(({ name, color }) => (
                 <div key={name} className="col-md-4">
