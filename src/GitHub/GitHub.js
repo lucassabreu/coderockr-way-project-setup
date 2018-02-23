@@ -1,6 +1,5 @@
 import React from 'react'
 import Loading from '../Components/Loading';
-import { githubAccessTokenUrl } from './constants'
 
 class GitHub extends React.Component {
   constructor(props) {
@@ -12,33 +11,6 @@ class GitHub extends React.Component {
       loading: true,
       code: params.get('code')
     };
-  }
-
-  async componentDidMount() {
-    fetch(new Request(
-      'https://api.github.com/users/lucassabreu',
-      {
-        method: "GET",
-        headers: new Headers({ accept: 'application/json' })
-      })
-    )
-      .then(r => r.json())
-      .then(console.log)
-
-    fetch(new Request(
-      githubAccessTokenUrl(this.state.code),
-      {
-        method: 'POST',
-        headers: new Headers({ Accept: 'application/json' })
-      }
-    ))
-      .then(r => {
-        if (r.ok === false) {
-          throw new Error(`${r.status} - ${r.statusText}`)
-        }
-        return r.json()
-      })
-      .then(console.log())
   }
 
   render() {
