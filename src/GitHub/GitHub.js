@@ -1,20 +1,25 @@
 import React from 'react'
 import Loading from '../Components/Loading';
+import { withGithubRepositories } from './withGitHubRepositories';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 class GitHub extends React.Component {
+
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = { selectedOption: null }
+  }
 
-    const params = new URLSearchParams(props.location.search);
-
-    this.state = {
-      loading: true,
-      code: params.get('code')
-    };
+  handleSelect(selectedOption) {
+    this.setState({ selectedOption })
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, repositories } = this.props;
+    const selectedOption = this.state.selectedOption && this.state.selectedOption.value
+
+    repositories.sort((a, b) => a.full_name.toLocaleLowerCase() > b.full_name.toLocaleLowerCase() ? 1 : -1)
     return (
       <div className="GitHub">
         {loading ?
@@ -24,6 +29,14 @@ class GitHub extends React.Component {
           </section>
           :
           <section>
+            <Select
+              value={selectedOption}
+              onChange={(e) => this.handleSelect(e)}
+              options={repositories.map(r => Object.assign(r, {
+                value: r.full_name,
+                label: r.full_name,
+              }))}
+            />
           </section>
         }
       </div>
@@ -31,4 +44,4 @@ class GitHub extends React.Component {
   }
 }
 
-export default GitHub
+export default withGithubRepositories(GitHub)
