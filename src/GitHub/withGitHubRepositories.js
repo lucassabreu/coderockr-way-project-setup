@@ -1,6 +1,15 @@
 import React from 'react';
 
-export function withGithubRepositories(Component) {
+const fetchGitHub = (url, method, body) => fetch(url, {
+  method: method || 'GET',
+  body,
+  headers: new Headers({
+    Authorization: `token ${sessionStorage.getItem('github-token')}`,
+    Accept: 'application/json',
+  })
+})
+
+function withGithubRepositories(Component) {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -20,16 +29,7 @@ export function withGithubRepositories(Component) {
 
     async fetchNextPage(page) {
       const paging = page ? `?page=${page}` : '';
-
-      const resp = await fetch(new Request(
-        `https://api.github.com/user/repos${paging}`,
-        {
-          headers: new Headers({
-            Authorization: `token ${sessionStorage.getItem('github-token')}`,
-            Accept: 'application/json',
-          })
-        }
-      ));
+      const resp = await fetchGitHub(`https://api.github.com/user/repos${paging}`);
 
       let repos = await resp.json();
       if (repos.length === 0) {
@@ -47,3 +47,5 @@ export function withGithubRepositories(Component) {
     }
   }
 }
+
+export { withGithubRepositories, fetchGitHub }

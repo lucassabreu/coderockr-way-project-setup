@@ -1,7 +1,7 @@
 import React from 'react'
 import Loading from '../Components/Loading';
 import ProjectListSelector from '../Components/ProjectListSelector';
-import { withGithubRepositories } from './withGitHubRepositories';
+import { withGithubRepositories, fetchGitHub } from './withGitHubRepositories';
 import LABELS_TO_ADD from '../Labels';
 import invertColor from '../invertColor';
 import './GitHub.css';
@@ -13,12 +13,31 @@ class GitHub extends React.Component {
     this.state = {
       selectedOption: null,
       applying: false,
+      applyedLabels: []
     }
   }
 
   handleApply(selectedOption) {
-    console.log(selectedOption)
     this.setState({ selectedOption, applying: true })
+    this.applyChangesToRepository(selectedOption.value)
+  }
+
+  async applyChangesToRepository(repoName) {
+
+    const createLabelsPromices = LABELS_TO_ADD.map(l => this.createLabel(repoName, l))
+
+  }
+
+  async createLabel(repoName, { name, color }) {
+    fetchGitHub(
+      `https://api.github.com/repos/${repoName}/labels`,
+      'POST',
+      { name, color }
+    )
+
+    this.setState(({ applyedLabels }) => ({
+      applyedLabels: [...applyedLabels, name]
+    }))
   }
 
   render() {
@@ -53,7 +72,7 @@ class GitHub extends React.Component {
                   <label alt={name} className="label-item"
                     style={{ backgroundColor: '#' + color, color: invertColor('#' + color, true) }}
                   >
-                    <input disabled type="checkbox" />
+                    <input disabled type="checkbox" checked={this.state.applyedLabels.indexOf(name) > -1} />
                     {name}
                   </label>
                 </div>
