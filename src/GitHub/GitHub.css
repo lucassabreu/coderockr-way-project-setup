@@ -1,0 +1,30 @@
+.GitHub .select-group {
+    margin-bottom: 1rem;
+}
+
+.GitHub .labels .label-item {
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
+.GitHub .Select-control {
+    height: 2.5rem
+}
+
+.GitHub .btn-apply-labels {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .GitHub .btn-apply-labels {
+        margin: 1rem 0;
+    }
+}
+
+.GitHub .labels .label-item [type=checkbox] {
+    margin: .5rem;
+    display: inline-block;
+}
