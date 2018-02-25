@@ -112,10 +112,11 @@ class Trello extends React.Component {
 
 
     try {
-      const currentLabels = (await (await this.fetch({ path: `boards/${boardId}/labels`, query: { fields: 'name' } })).json())
+      const currentLabels = (await (await this.fetch({ path: `boards/${boardId}/labels`, query: { fields: 'name,color' } })).json())
       const createLabelsPromices = TRELLO_LABELS.map(l => this.createLabel(boardId, l, currentLabels))
+      const removeLabelPromices = COLORS.map(l => this.removeLabel(boardId, l, currentLabels))
 
-      await Promise.all(createLabelsPromices)
+      await Promise.all([...createLabelsPromices, ...removeLabelPromices])
       this.setState({
         applying: false,
         alert: { type: 'success', message: 'Setup completed !' }
@@ -156,11 +157,15 @@ class Trello extends React.Component {
     }))
   }
 
-  async removeLabel(boardId, { name }) {
-    await this.fetch(
-      `https://Trello.com/api/v4/boards/${boardId}/labels?name=${name}`,
-      'DELETE'
-    );
+  async removeLabel(boardId, { name }, currentLabels) {
+    const cl = currentLabels.filter(cl => cl.color === name && cl.name === "").pop();
+
+    if (!cl) {
+      this.addApplyedLabel(name);
+      return;
+    }
+
+    await this.fetch({ path: `labels/${cl.id}`, method: 'DELETE' });
 
     this.setState(({ applyedLabels }) => ({
       applyedLabels: [...applyedLabels, name],
@@ -193,6 +198,7 @@ class Trello extends React.Component {
           selectedPreject={selectedOption}
 
           labelsToAdd={TRELLO_LABELS}
+          labelsToRemove={COLORS}
 
           onApply={(selected) => this.handleApply(selected)}
 
