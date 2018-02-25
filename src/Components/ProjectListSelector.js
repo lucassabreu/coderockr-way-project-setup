@@ -3,13 +3,9 @@ import PropTypes from 'prop-types'
 
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import projectShape from './projectShape'
 
 import './ProjectListSelector.css';
-
-const projectShape = PropTypes.shape({
-  value: PropTypes.any.isRequired,
-  label: PropTypes.string.isRequired,
-});
 
 export default class ProjectListSelector extends React.Component {
   static propTypes = {

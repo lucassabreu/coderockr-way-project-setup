@@ -5,7 +5,7 @@ import './App.css';
 import CoderockrLogo from './assets/images/hand-yellow.svg'
 import Home from './Home'
 import Footer from './Footer';
-import GitHub from './GitHub/GitHub';
+import GitHub from './Origins/GitHub';
 
 const App = () => (
   <div className="CWSPApp">

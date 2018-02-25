@@ -1,0 +1,28 @@
+.ProjectListApplyer .select-group {
+    margin-bottom: 1rem;
+}
+
+.ProjectListApplyer .labels .label-item {
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
+.ProjectListApplyer .applying-status {
+    margin: 1rem 0;
+}
+
+.ProjectListApplyer .labels h2 {
+    font-size: 1.5rem;
+}
+
+.ProjectListApplyer .labels .label-item .label-icon {
+    margin: .5rem;
+    display: inline-block;
+}
+
+.ProjectListApplyer .labels .label-item .label-name {
+    vertical-align: super;
+}
