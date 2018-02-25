@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.4] - 2018-02-25
+
+### Added
+- Support for custom labels at the component
+- Trello boards setup
+
 ## [0.1.3] - 2018-02-25
 
 ### Fixed

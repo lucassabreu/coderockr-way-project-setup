@@ -35,6 +35,7 @@ const ProjectListApplyer = ({
   applyedLabels,
   applyingStatus,
   onApply,
+  labelsToAdd,
   labelsToRemove,
   alert
 }) => (
@@ -61,7 +62,7 @@ const ProjectListApplyer = ({
         <LabelList
           header="Labels to Add:"
           className="labels-to-add"
-          labels={LABELS_TO_ADD}
+          labels={labelsToAdd}
           applyedLabels={applyedLabels}
         />
         {labelsToRemove.length === 0 ? null :
@@ -75,6 +76,11 @@ const ProjectListApplyer = ({
       </section>
     </div>
   );
+
+const labelShape = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+});
 
 ProjectListApplyer.propTypes = {
   className: PropTypes.string,
@@ -91,10 +97,8 @@ ProjectListApplyer.propTypes = {
   projects: PropTypes.arrayOf(projectShape).isRequired,
   selectedPreject: projectShape,
 
-  labelsToRemove: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-  })).isRequired,
+  labelsToAdd: PropTypes.arrayOf(labelShape),
+  labelsToRemove: PropTypes.arrayOf(labelShape).isRequired,
 }
 
 ProjectListApplyer.defaultProps = {
@@ -102,6 +106,7 @@ ProjectListApplyer.defaultProps = {
   applying: false,
   applyedLabels: [],
   labelsToRemove: [],
+  labelsToAdd: LABELS_TO_ADD,
 }
 
 export default ProjectListApplyer

@@ -6,9 +6,9 @@ import gitlabLogo from './assets/images/gitlab.svg'
 import trelloLogo from './assets/images/trello.svg'
 import Authenticator from 'netlify-auth-providers';
 import { UncontrolledTooltip } from 'reactstrap';
+import { API_KEY as TRELLO_API_KEY } from './Origins/trelloConstants'
 import './Home.css'
 
-const nullCallback = (event) => event.preventDefault();
 const auth = new Authenticator({ site_id: "cwps.lucassabreu.net.br" });
 
 const Home = ({ history }) => {
@@ -48,8 +48,11 @@ const Home = ({ history }) => {
     {
       name: "Trello",
       logo: trelloLogo,
-      enabled: false,
-      callback: nullCallback,
+      enabled: true,
+      callback: (event) => {
+        const callbackUrl = `${window.location.href}trello`
+        window.location = `https://trello.com/1/authorize?callback_method=fragment&return_url=${callbackUrl}&scope=read,write&expiration=1day&name=Coderockr Way Project Setup&key=${TRELLO_API_KEY}`
+      },
     },
   ];
 
