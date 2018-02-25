@@ -6,5 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.0] - 2018-02-25
+
 ### Added
-- Update README.md to explain what is the project and how to run it locally
+- Updated README.md to explain what is the project and how to run it locally
+- Added support to setup projects on GitHub
+- Made the code structure reusable do allow a quicker implementation of new project origins
