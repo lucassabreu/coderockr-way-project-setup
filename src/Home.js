@@ -18,7 +18,7 @@ const Home = ({ history }) => {
       logo: githubLogo,
       enabled: true,
       callback: (event) => {
-        auth.authenticate({ provider: "github", scope: "user" }, (err, data) => {
+        auth.authenticate({ provider: "github", scope: ["user", 'repo'] }, (err, data) => {
           if (err) {
             console.error(err);
             return

@@ -14,7 +14,11 @@
     margin: 1rem 0;
 }
 
-.GitHub .labels .label-item [type=checkbox] {
+.GitHub .labels .label-item .label-icon {
     margin: .5rem;
     display: inline-block;
+}
+
+.GitHub .labels .label-item .label-name {
+    vertical-align: super;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const fetchGitHub = (url, method, body) => fetch(url, {
   method: method || 'GET',
-  body,
+  body : JSON.stringify(body),
   headers: new Headers({
     Authorization: `token ${sessionStorage.getItem('github-token')}`,
     Accept: 'application/json',
