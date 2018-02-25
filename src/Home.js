@@ -31,8 +31,19 @@ const Home = ({ history }) => {
     {
       name: "GitLab",
       logo: gitlabLogo,
-      enabled: false,
-      callback: nullCallback,
+      enabled: true,
+      callback: (event) => {
+        auth.authenticate({ provider: "gitlab", scope: ["user", 'repo'] }, (err, data) => {
+          if (err) {
+            console.error(err);
+            return
+          }
+
+          sessionStorage.setItem('gitlab-token', data.token);
+          sessionStorage.setItem('gitlab-refresh-token', data.refresh_token);
+          history.push('/gitlab');
+        })
+      }
     },
     {
       name: "Trello",
