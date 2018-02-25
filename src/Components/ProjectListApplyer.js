@@ -64,6 +64,12 @@ const ProjectListApplyer = ({
               <div className="col-md-12"><Loading status={applyingStatus} /></div>
             </div>
           }
+          <LabelList
+            header="Labels to Add:"
+            className="labels-to-add"
+            labels={LABELS_TO_ADD}
+            applyedLabels={applyedLabels}
+          />
           {labelsToRemove.length === 0 ? null :
             <LabelList
               header="Labels to Remove:"
@@ -72,12 +78,6 @@ const ProjectListApplyer = ({
               applyedLabels={applyedLabels}
             />
           }
-          <LabelList
-            header="Labels to Add:"
-            className="labels-to-add"
-            labels={LABELS_TO_ADD}
-            applyedLabels={applyedLabels}
-          />
         </section>
       }
     </div>
