@@ -6,6 +6,7 @@ import CoderockrLogo from './assets/images/hand-yellow.svg'
 import Home from './Home'
 import Footer from './Footer';
 import GitHub from './Origins/GitHub';
+import GitLab from './Origins/GitLab';
 
 const App = () => (
   <div className="CWSPApp">
@@ -18,7 +19,8 @@ const App = () => (
     <div className=" container">
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/github/" component={GitHub} />
+        <Route exact path="/github" component={GitHub} />
+        <Route exact path="/gitlab" component={GitLab} />
       </Switch>
     </div>
     <Footer />
