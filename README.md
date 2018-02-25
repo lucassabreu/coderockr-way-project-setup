@@ -9,7 +9,9 @@ More about this at: https://blog.coderockr.com/simplificando-o-setup-de-projetos
 Development Start
 -----------------
 
-Add `cwps.lucassabreu.test` to your `/etc/hosts` and run `yarn start`, all dependencs will be installed and a watch-server using webpack will be started at http://cwps.lucassabreu.test:3000.
+Just run the command `yarn start`, the service must be served through `http://localhost:3000` to [Netlify Auth Providers](https://www.netlify.com/docs/authentication-providers/) to work. 
+
+The command will watch for changes on the source and update it automatically.
 
 Deploy
 ------
