@@ -7,6 +7,7 @@ import Home from './Home'
 import Footer from './Footer';
 import GitHub from './Origins/GitHub';
 import GitLab from './Origins/GitLab';
+import Trello from './Origins/Trello';
 
 const App = () => (
   <div className="CWSPApp">
@@ -21,6 +22,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/github" component={GitHub} />
         <Route exact path="/gitlab" component={GitLab} />
+        <Route exact path="/trello" component={Trello} />
       </Switch>
     </div>
     <Footer />
