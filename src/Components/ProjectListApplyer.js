@@ -29,7 +29,6 @@ const LabelList = ({ header, labels, className, applyedLabels }) => (
 
 const ProjectListApplyer = ({
   className,
-  loading,
   projects,
   selectedPreject,
   applying,
@@ -40,52 +39,45 @@ const ProjectListApplyer = ({
   alert
 }) => (
     <div className={`ProjectListApplyer ${className}`}>
-      {loading ?
-        <section>
-          <h2>Loading...</h2>
-          <Loading />
-        </section>
-        :
-        <section>
-          <ProjectListSelector className="select-group"
-            disabled={applying}
-            selected={selectedPreject}
-            projects={projects}
-            onApply={(selected) => onApply(selected)}
+      <section>
+        <ProjectListSelector className="select-group"
+          disabled={applying}
+          selected={selectedPreject}
+          projects={projects}
+          onApply={(selected) => onApply(selected)}
+        />
+
+        {!alert ? null :
+          <Alert
+            color={alert.type}
+            children={alert.message}
           />
-          {!alert ? null :
-            <Alert
-              color={alert.type}
-              children={alert.message}
-            />
-          }
-          {!applying ? null :
-            <div className="row applying-status">
-              <div className="col-md-12"><Loading status={applyingStatus} /></div>
-            </div>
-          }
+        }
+        {!applying ? null :
+          <div className="row applying-status">
+            <div className="col-md-12"><Loading status={applyingStatus} /></div>
+          </div>
+        }
+        <LabelList
+          header="Labels to Add:"
+          className="labels-to-add"
+          labels={LABELS_TO_ADD}
+          applyedLabels={applyedLabels}
+        />
+        {labelsToRemove.length === 0 ? null :
           <LabelList
-            header="Labels to Add:"
-            className="labels-to-add"
-            labels={LABELS_TO_ADD}
+            header="Labels to Remove:"
+            className="labels-to-remove"
+            labels={labelsToRemove}
             applyedLabels={applyedLabels}
           />
-          {labelsToRemove.length === 0 ? null :
-            <LabelList
-              header="Labels to Remove:"
-              className="labels-to-remove"
-              labels={labelsToRemove}
-              applyedLabels={applyedLabels}
-            />
-          }
-        </section>
-      }
+        }
+      </section>
     </div>
   );
 
 ProjectListApplyer.propTypes = {
   className: PropTypes.string,
-  loading: PropTypes.bool,
 
   applying: PropTypes.bool,
   applyingStatus: PropTypes.string,
@@ -108,7 +100,6 @@ ProjectListApplyer.propTypes = {
 ProjectListApplyer.defaultProps = {
   className: "",
   applying: false,
-  loading: false,
   applyedLabels: [],
   labelsToRemove: [],
 }

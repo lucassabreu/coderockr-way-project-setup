@@ -1,6 +1,10 @@
 import React from 'react'
 import LABELS_TO_ADD from '../Labels';
 import ProjectListApplyer from '../Components/ProjectListApplyer';
+import Loading from '../Components/Loading'
+import GitHubLogo from '../assets/images/github.svg'
+
+import './helper.css';
 
 const LABELS_TO_REMOVE = [
   { name: "bug", color: "d73a4a" },
@@ -123,23 +127,39 @@ class GitHub extends React.Component {
   render() {
     const { loading, repositories, selectedOption, applyedLabels, applying, applyingStatus, alert } = this.state;
 
-    return <ProjectListApplyer
-      loading={loading}
-      projects={repositories.map(r => Object.assign(r, {
-        value: r.full_name,
-        label: r.full_name,
-      }))}
-      selectedPreject={selectedOption}
+    if (loading) {
+      return <section>
+        <h2>Loading GitHub...</h2>
+        <Loading />
+      </section>
+    }
 
-      labelsToRemove={LABELS_TO_REMOVE}
+    return (
+      <div className="GitHub">
+        <section className="origin-header">
+          <h1>
+            <span className="origin-logo"><GitHubLogo /></span>
+            <span className="origin-name">GitHub</span>
+          </h1>
+        </section>
+        <ProjectListApplyer
+          projects={repositories.map(r => Object.assign(r, {
+            value: r.full_name,
+            label: r.full_name,
+          }))}
+          selectedPreject={selectedOption}
 
-      onApply={(selected) => this.handleApply(selected)}
+          labelsToRemove={LABELS_TO_REMOVE}
 
-      applyedLabels={applyedLabels}
-      applying={applying}
-      applyingStatus={applyingStatus}
-      alert={alert}
-    />
+          onApply={(selected) => this.handleApply(selected)}
+
+          applyedLabels={applyedLabels}
+          applying={applying}
+          applyingStatus={applyingStatus}
+          alert={alert}
+        />
+      </div>
+    )
   }
 }
 

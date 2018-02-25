@@ -1,0 +1,13 @@
+.origin-header {
+    padding-bottom: 0;
+}
+
+.origin-logo {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: .5ex;
+}
+
+.origin-logo svg {
+    height: 1em;
+}

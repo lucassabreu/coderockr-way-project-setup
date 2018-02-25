@@ -27,6 +27,10 @@
     margin: auto;
 }
 
+.CWSPApp .Home .project-handlers-buttons .btn .icon path {
+    fill: var(--primary)
+}
+
 .CWSPApp .Home .project-handlers-buttons .btn:active .icon path,
 .CWSPApp .Home .project-handlers-buttons .btn:hover .icon path {
     fill: white;
