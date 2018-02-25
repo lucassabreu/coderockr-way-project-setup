@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.3] - 2018-02-25
+
+### Fixed
+- Fixed unneeded exposition of method on GitLab component
+
 ## [0.1.2] - 2018-02-25
 
 ### Added
