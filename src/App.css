@@ -4,6 +4,12 @@
     padding-bottom: 12rem;
 }
 
+@media (max-width: 576px) {
+    .CWSPApp {
+        padding-bottom: 16.5rem;
+    }
+}
+
 .CWSPApp header {
     font-family: Oswald, Roboto, sans-serif;
     font-size: 120%;
