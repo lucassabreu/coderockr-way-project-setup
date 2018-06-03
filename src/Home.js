@@ -33,7 +33,7 @@ const Home = ({ history }) => {
       logo: gitlabLogo,
       enabled: true,
       callback: (event) => {
-        auth.authenticate({ provider: "gitlab", scope: ["user", 'repo'] }, (err, data) => {
+        auth.authenticate({ provider: "gitlab", scope: ['api'] }, (err, data) => {
           if (err) {
             console.error(err);
             return
