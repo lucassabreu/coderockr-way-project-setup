@@ -88,10 +88,8 @@ const Home = ({ history }) => {
       <section className="more-about">
         <h4>Wanna know more about?</h4>
         <p>Look these links:</p>
-        <ul>
-          <li><a href="https://blog.coderockr.com/simplifying-project-setup-on-github-1cd2ac2895ee">Simplifying Project Setup on GitHub</a></li>
-          <li><a href="https://blog.coderockr.com/simplifying-project-setup-even-further-da5ef60a1ec9">Simplifying Project Setup even further</a></li>
-        </ul>
+        <p><a href="https://blog.coderockr.com/simplifying-project-setup-on-github-1cd2ac2895ee">Simplifying Project Setup on GitHub</a></p>
+        <p><a href="https://blog.coderockr.com/simplifying-project-setup-even-further-da5ef60a1ec9">Simplifying Project Setup even further</a></p>
       </section>
     </div>
   )
