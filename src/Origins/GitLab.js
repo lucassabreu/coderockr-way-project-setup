@@ -43,7 +43,7 @@ class GitLab extends React.Component {
   }
 
   async componentDidMount() {
-    const resp = await this.fetch(`https://gitlab.com/api/v3/projects`);
+    const resp = await this.fetch(`https://gitlab.com/api/v4/projects`);
     const projects = await resp.json();
     if (projects.message) {
         this.setState ({
