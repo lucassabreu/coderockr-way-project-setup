@@ -5,6 +5,8 @@ import GitLabLogo from '../assets/images/gitlab.svg'
 import Loading from '../Components/Loading'
 import './helper.css'
 
+const GITLAB_BASE_URL = "https://gitlab.com/api/v4";
+
 const LABELS_TO_REMOVE = [
   { name: "bug", color: "d9534f" },
   { name: "confirmed", color: "d9534f" },
@@ -43,8 +45,16 @@ class GitLab extends React.Component {
   }
 
   async componentDidMount() {
-    const resp = await this.fetch(`https://gitlab.com/api/v3/projects`);
+    const resp = await this.fetch(`${GITLAB_BASE_URL}/projects?membership=true`);
     const projects = await resp.json();
+    if (projects.message) {
+      this.setState({
+        loading: false,
+        projects: [],
+        alert: { type: 'danger', message: projects.message }
+      });
+      return;
+    }
 
     this.setState({
       loading: false,
@@ -82,7 +92,7 @@ class GitLab extends React.Component {
 
   async removeLabel(projectId, { name }) {
     await this.fetch(
-      `https://gitLab.com/api/v4/projects/${projectId}/labels?name=${name}`,
+      `${GITLAB_BASE_URL}/projects/${projectId}/labels?name=${name}`,
       'DELETE'
     );
 
@@ -101,7 +111,7 @@ class GitLab extends React.Component {
     }
 
     const resp = await this.fetch(
-      `https://gitLab.com/api/v4/projects/${projectId}/labels`,
+      `${GITLAB_BASE_URL}/projects/${projectId}/labels`,
       'POST',
       formData
     );

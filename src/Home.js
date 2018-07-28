@@ -33,7 +33,7 @@ const Home = ({ history }) => {
       logo: gitlabLogo,
       enabled: true,
       callback: (event) => {
-        auth.authenticate({ provider: "gitlab", scope: ["user", 'repo'] }, (err, data) => {
+        auth.authenticate({ provider: "gitlab", scope: ['api'] }, (err, data) => {
           if (err) {
             console.error(err);
             return
@@ -87,8 +87,9 @@ const Home = ({ history }) => {
       </section>
       <section className="more-about">
         <h4>Wanna know more about?</h4>
-        <p>Look this link: <a href="https://blog.coderockr.com/simplificando-o-setup-de-projetos-no-github-f29b76c83194">Simplificando o Setup de Projetos no GitHub</a>
-        </p>
+        <p>Look these links:</p>
+        <p><a href="https://blog.coderockr.com/simplifying-project-setup-on-github-1cd2ac2895ee">Simplifying Project Setup on GitHub</a></p>
+        <p><a href="https://blog.coderockr.com/simplifying-project-setup-even-further-da5ef60a1ec9">Simplifying Project Setup even further</a></p>
       </section>
     </div>
   )
