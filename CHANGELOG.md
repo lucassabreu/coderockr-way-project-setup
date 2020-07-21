@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- Updated dependencies because of venerabilities
+
 ## [0.1.5] - 2018-02-25
 
 ### Added
@@ -25,7 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.1.2] - 2018-02-25
 
 ### Added
-- Added suport to setup GitLab projects
+- Added support to setup GitLab projects
 
 ### Changed
 - Changed README.md to reflect the right settings
@@ -33,7 +35,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.1.1] - 2018-02-25
 
 ### Fixed
-- Fixed Footer brocking when in lower widths
+- Fixed Footer braking when in lower widths
 
 ## [0.1.0] - 2018-02-25
 
