@@ -45,11 +45,7 @@ class GitHub extends React.Component {
   }
 
   async componentDidMount() {
-    const repositories = await this.fetchNextPage();
-    this.setState({
-      loading: false,
-      repositories: repositories,
-    })
+     await this.fetchNextPage();
   }
 
   async fetchNextPage(page) {
@@ -61,7 +57,12 @@ class GitHub extends React.Component {
       return repos;
     }
 
-    return repos.concat(await this.fetchNextPage(page ? page + 1 : 2));
+    this.setState(prevState => ({
+      loading: false,
+      repositories: [...prevState.repositories, ...repos],
+    }))
+
+     this.fetchNextPage(page ? page + 1 : 2);
   }
 
   handleApply(selectedOption) {

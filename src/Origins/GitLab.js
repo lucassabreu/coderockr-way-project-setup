@@ -4,6 +4,7 @@ import ProjectListApplyer from '../Components/ProjectListApplyer';
 import GitLabLogo from '../assets/images/gitlab.svg'
 import Loading from '../Components/Loading'
 import './helper.css'
+import parse from 'parse-link-header';
 
 const GITLAB_BASE_URL = "https://gitlab.com/api/v4";
 
@@ -45,7 +46,11 @@ class GitLab extends React.Component {
   }
 
   async componentDidMount() {
-    const resp = await this.fetch(`${GITLAB_BASE_URL}/projects?membership=true`);
+    await this.fetchProjects(`${GITLAB_BASE_URL}/projects?membership=true&simple=true`)
+  }
+
+  async fetchProjects(url) {
+    const resp = await this.fetch(url);
     const projects = await resp.json();
     if (projects.message) {
       this.setState({
@@ -56,10 +61,15 @@ class GitLab extends React.Component {
       return;
     }
 
-    this.setState({
+    this.setState(prevState => ({
       loading: false,
-      projects: projects,
-    })
+      projects: [...prevState.projects, ...projects],
+    }))
+
+    const links = parse(resp.headers.get('Link'))
+    if (links.next) {
+      this.fetchProjects(links.next.url)
+    }
   }
 
   handleApply(selectedOption) {
