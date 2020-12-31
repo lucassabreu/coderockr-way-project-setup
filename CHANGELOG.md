@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 - Updated dependencies because of venerabilities
+- Remove dependencies not used
+- Simplifying Webpack build and dev server to allow easier updates to it in the future.
 
 ## [0.1.5] - 2018-02-25
 
