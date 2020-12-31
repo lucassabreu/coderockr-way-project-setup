@@ -6,8 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.6] - 2020-12-31
+
+### Fixed
 - Updated dependencies because of venerabilities
 - Remove dependencies not used
+
+### Changed
 - Simplifying Webpack build and dev server to allow easier updates to it in the future.
 
 ## [0.1.5] - 2018-02-25
