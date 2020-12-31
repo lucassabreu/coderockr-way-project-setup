@@ -5,7 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import 'material-design-icons/iconfont/material-icons.css'
+import '../public/manifest.json';
 
 ReactDOM.render(
   <Router><App /></Router>,
