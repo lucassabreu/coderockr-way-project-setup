@@ -1,5 +1,6 @@
 {
   "name": "coderockr-way-project-setup",
+  "homepage": "https://cwps.lucassabreu.net.br/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
