@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ESLintWebpackPlugin = require("eslint-webpack-plugin");
 
 const PUBLIC_URL = "/";
 
@@ -28,9 +29,10 @@ module.exports = {
     contentBase: path.join(__dirname, "public"),
     compress: true,
     port: process.env.NODE_PORT || 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
+    new ESLintWebpackPlugin({}),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
