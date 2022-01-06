@@ -10,7 +10,7 @@
     "material-design-icons": "^3.0.1",
     "netlify-auth-providers": "^1.0.0-alpha5",
     "object-assign": "4.1.1",
-    "parse-link-header": "^1.0.1",
+    "parse-link-header": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^4.2.0",
